@@ -7,6 +7,11 @@ class Post < Sequent::AggregateRoot
     apply PostContentChanged, content: command.content
   end
 
+  def publish(publication_date)
+    fail PostAlreadyPublishedError if @publication_date.any?
+    apply PostPublished, publication_date: publication_date
+  end
+
   on PostAdded do
   end
 

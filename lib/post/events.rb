@@ -12,3 +12,7 @@ end
 class PostContentChanged < Sequent::Event
   attrs content: String
 end
+
+class PostPublished < Sequent::Event
+  attrs publication_date: Date
+end
